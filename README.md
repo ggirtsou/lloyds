@@ -14,6 +14,7 @@ analysis on your bank statement! Please, do not post the output of this program 
 as it's really bad practice revealing your financial history!
 
 Why should I use this?
+====
 For convinience. Lloyds does not support searching your statement for a period greater
 than 90 days, which makes it difficult if you want to pinpoint certain transactions.
 
