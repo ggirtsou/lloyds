@@ -15,10 +15,10 @@ as it's really bad practice revealing your financial history!
 
 How to get transactions export
 ====
-* download monthly csv exports from internet banking
-* create a new directory: mkdir `~/Downloads/lloyds` and move the CSV exports there `mv ~/Downloads/*.csv ~/Downloads/lloyds`
-* concat them: `cat ~/Downloads/lloyds/*.csv > transactions.csv`
-* delete the multiple headers: `sed '1!{/^Transaction Date/d;}' transactions.csv > clean.csv`
+* Login to internet banking to download monthly CSV exports. View Statement > scroll down > click Export.
+* Create a new directory: mkdir `~/Downloads/lloyds` and move the CSV exports there `mv ~/Downloads/*.csv ~/Downloads/lloyds`
+* Concat them: `cat ~/Downloads/lloyds/*.csv > transactions.csv`
+* Delete the multiple headers: `sed '1!{/^Transaction Date/d;}' transactions.csv > clean.csv`
 
 If you're using a ref/description for your transactions, you can easily find them.
 - see rent transaction payments: `cat clean.csv | grep -i "rent"`
@@ -40,17 +40,17 @@ In the detailed report, you will see the following information:
 Setup
 ===
 * You have to have [Go](https://golang.org/dl/) installed on your system.
-* Use `go get` to get the package: `go get github.com/ggirtsou/lloyds` and then cd
+* Use `go get` to get the package: `go get github.com/ggirtsou/lloyds` and then `cd`
 to your project directory: `cd $GOPATH/src/github.com/ggirtsou/lloyds`
 * Alternatively, clone the repository: `git clone git@github.com:ggirtsou/lloyds.git`
 
 Build
 ===
-`go build` or `go run main.go`
+`go build`
 
-How to use
+Usage
 ====
-Either pass a filename in CLI argument: `./lloyds --file="/tmp/clean.csv"`, or pipe CSV contents
+Either pass a filename in CLI: `./lloyds --file="/tmp/clean.csv"`, or pipe CSV contents
 to stdin: `cat ~/Downloads/lloyds/clean.csv | ./lloyds`.
 
 Example output
@@ -93,6 +93,11 @@ If you get an export with your transactions from another bank and columns are in
 order, you can reorder them and use this tool for that (althought it might not report
 the transaction types correctly as these are probably specific to Lloyds).
 
+For reference, the expected headers order is:
+```
+Transaction Date,Transaction Type,Sort Code,Account Number,Transaction Description,Debit Amount,Credit Amount,Balance,
+```
+
 Feel free to make any changes, and if you feel it would be useful for other cases, please
 submit a Pull Request to make the tool more generic.
 
@@ -105,4 +110,4 @@ Can I make changes to this project?
 ====
 Sure! Clone the repository with `git`, or download the source code and hack away! You're
 free to do whatever you want with it, as it's under MIT license. Please note, I'm not
-responsible for any issues with this software - read LICENSE.
+responsible for any issues with this software - read `LICENSE`.
