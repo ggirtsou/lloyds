@@ -102,8 +102,8 @@ submit a Pull Request to make the tool more generic.
 If you want a feature to be added, or a different calculation on the output, or found a bug
 please create an issue here on Github, and depending on my time constraints I will add it.
 
-## Can I make changes to this project?
+## Contributions
 
-Sure! Clone the repository with `git`, or download the source code and hack away! You're
+Clone the repository with `git`, or download the source code and hack away! You're
 free to do whatever you want with it, as it's under MIT license. Please note, I'm not
 responsible for any issues with this software - read LICENSE.
